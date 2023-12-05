@@ -7,7 +7,7 @@
 
 function calculateTotalSpentByCategory(transactions) {
 
-  // array to return the result
+  // array to return the resul
   let output=[];
 
   if(transactions.length==0) return [];
