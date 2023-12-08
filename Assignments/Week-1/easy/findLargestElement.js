@@ -6,7 +6,8 @@
 */
 
 function findLargestElement(numbers) {
-    largestElement=0;
+    if (numbers.length===0) return undefined;
+    largestElement=numbers[0];
     numbers.forEach(element => {
         if(element>largestElement){
            largestElement=element;
