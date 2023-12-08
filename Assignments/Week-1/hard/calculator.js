@@ -16,6 +16,71 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
 
+  constructor(){
+    this.result=0;
+  }
+
+  add(n){
+    this.result+=n;
+  }
+
+  subtract(n){
+    this.result-=n;
+  }
+
+  multiply(n){
+    this.result*=n;
+  }
+    
+  divide(n){
+    try{
+      if(n===0) throw new Error();
+      this.result/=n;
+    }
+    catch(error){
+      throw new Error();
+    }
+    
+  }
+
+  clear(){
+    this.result=0;
+  }
+
+  getResult(){
+    return this.result;
+  }
+
+  calculate(expression){
+    try{
+
+      // Validate expression for potential security risks
+      if (!/^[0-9+\-*/().\s]+$/.test(expression)) throw new Error();
+
+      // Remove white spaces from the expression
+      expression=expression.replace(/\s/g,"");
+      console.log(expression);
+
+      // Check for division by zero
+      if (expression.includes('/0')) throw new Error();
+
+      // evalautes the expression
+      let resultOfExp=eval(expression);
+
+      // 
+      if(isNaN(resultOfExp)) throw new Error();
+      
+      this.result=resultOfExp;
+    }
+
+    catch(error){
+      throw new Error();
+    }
+  }
+}
+cal =new Calculator();
+console.log(cal.calculate('(2.5 + 1.5) * 3'));
+// console.log(cal.divide(0));
 module.exports = Calculator;
