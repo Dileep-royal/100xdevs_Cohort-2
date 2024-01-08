@@ -4,7 +4,7 @@ const {
   verifyJwt,
   decodeJwt,
   jwtPassword
-} = require('../');
+} = require('../index.js');
 
 describe('signJwt', () => {
 	test('signs a jwt correctly', () => {

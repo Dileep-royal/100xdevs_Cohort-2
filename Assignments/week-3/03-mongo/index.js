@@ -11,6 +11,10 @@ app.use("/user", userRouter)
 
 const PORT = 3000;
 
+app.all("*",(req,res)=>{
+    res.status(404).json({message:"Route not found"});
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
